@@ -1,4 +1,5 @@
 <?php
+include_once ( "./common/user_data.php" );
 
 // --------------------------------------
 // START
@@ -12,6 +13,7 @@ try {
 }
 
 function main(){
+    /*
     $params = array();
     $params[] = [
         'ID'        => '1',
@@ -28,6 +30,8 @@ function main(){
         'user_name' => '田中　裕也',
         'job'       => 'lead programmer'
     ];
+    */
+    $params = user_data::get_userdata();
 
     //templateを指定
     $template = './template/index.html';
