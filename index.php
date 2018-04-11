@@ -1,5 +1,6 @@
 <?php
 include_once ( "./common/user_data.php" );
+include_once ( "./common/common.php" );
 
 // --------------------------------------
 // START
@@ -35,13 +36,15 @@ function main(){
 
     //templateを指定
     $template = './template/index.html';
-    $contents = html_output($template,$params);
+    $contents = common::html_output($template,$params);
+    //$contents = html_output($template,$params);
+    
 
     //指定した内容を出力
     echo $contents;
 }
 
-function html_output($template,$params){
+/*function html_output($template,$params){
     //htmlを取り込む
     ob_start();
     require $template;
@@ -49,4 +52,4 @@ function html_output($template,$params){
 
     //出力内容を返す
     return $contents;
-}
+}*/
