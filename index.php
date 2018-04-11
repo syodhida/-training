@@ -28,18 +28,16 @@ function main(){
         'user_name' => '田中　裕也',
         'job'       => 'lead programmer'
     ];
-    var_dump($params);
-    var_dump($params[2]['user_name']);
-    exit();
+
     //templateを指定
     $template = './template/index.html';
-    $contents = html_output($template);
+    $contents = html_output($template,$params);
 
     //指定した内容を出力
     echo $contents;
 }
 
-function html_output($template){
+function html_output($template,$params){
     //htmlを取り込む
     ob_start();
     require $template;
