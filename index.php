@@ -33,13 +33,30 @@ function main(){
     ];
     */
     
-    var_dump($_GET);
+    //var_dump($_GET);
+
+    //GETにてIDの取得
+    $id = $_GET['ID'];
+
     //ユーザデータ取得
     $user_data = user_data::get_userdata();
     $output_user = [];
     //------------------------------------------------
     //ここで絞り込む
-    $output_user = $user_data;
+
+        foreach ($user_data as $key => $value) {
+
+            if($id == $value['ID']){
+        
+		$output_user[] = [
+			 'ID' => $value['ID'],
+			 'user_name' => $value['user_name'],
+			 'job' => $value['job']
+		];
+    	    }
+    	}
+
+
     //------------------------------------------------
     //セット
     $params = $output_user;
