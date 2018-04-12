@@ -32,33 +32,18 @@ function main(){
         'job'       => 'lead programmer'
     ];
     */
-    $params = user_data::get_userdata();
+    
+    var_dump($_GET);
+    //ユーザデータ取得
+    $user_data = user_data::get_userdata();
+    $output_user = [];
+    //------------------------------------------------
+    //ここで絞り込む
+    $output_user = $user_data;
+    //------------------------------------------------
+    //セット
+    $params = $output_user;
 
-    //  foreachサンプル
-    foreach ($params as $key => $value) {
-        echo 'key:';
-        var_dump($key);
-        echo '<br>';
-        echo 'value:';
-        var_dump($value);
-        echo '<br>';
-
-        if($key == 0){
-            echo '-------------<br>';
-            echo '$valueのキーを手動指定もできる　$value["user_name"]:'.$value["user_name"]."<br>";
-            echo '$keyが'.$key.'の$valueをさらにforeachで抽出<br>';
-            foreach ($value as $k => $v) {
-                echo 'key($k):';
-                var_dump($k);
-                echo '<br>';
-                echo 'value($v):';
-                var_dump($v);
-                echo '<br>';
-            }
-            echo '-------------<br>';
-        }
-    }
-    exit();
 
     //templateを指定
     $template = './template/index.html';
@@ -69,13 +54,3 @@ function main(){
     //指定した内容を出力
     echo $contents;
 }
-
-/*function html_output($template,$params){
-    //htmlを取り込む
-    ob_start();
-    require $template;
-    $contents = ob_get_clean();
-
-    //出力内容を返す
-    return $contents;
-}*/
