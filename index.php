@@ -34,11 +34,37 @@ function main(){
     */
     $params = user_data::get_userdata();
 
+    //  foreachサンプル
+    foreach ($params as $key => $value) {
+        echo 'key:';
+        var_dump($key);
+        echo '<br>';
+        echo 'value:';
+        var_dump($value);
+        echo '<br>';
+
+        if($key == 0){
+            echo '-------------<br>';
+            echo '$valueのキーを手動指定もできる　$value["user_name"]:'.$value["user_name"]."<br>";
+            echo '$keyが'.$key.'の$valueをさらにforeachで抽出<br>';
+            foreach ($value as $k => $v) {
+                echo 'key($k):';
+                var_dump($k);
+                echo '<br>';
+                echo 'value($v):';
+                var_dump($v);
+                echo '<br>';
+            }
+            echo '-------------<br>';
+        }
+    }
+    exit();
+
     //templateを指定
     $template = './template/index.html';
     $contents = common::html_output($template,$params);
     //$contents = html_output($template,$params);
-    
+
 
     //指定した内容を出力
     echo $contents;

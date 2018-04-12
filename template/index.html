@@ -26,7 +26,12 @@
 <body>
 
 <div class="container">
-	<p><?php echo $params[2]['user_name']; ?></p>
+    <!-- ここにループ開始　-->
+    <hr>
+	<p>ユーザID:<?php echo $params[0]['ID']; ?></p>
+    <p>ユーザ名:<?php echo $params[0]['user_name']; ?></p>
+    <p>役職:<?php echo $params[0]['job']; ?></p>
+    <!-- ここにループ終了　-->
 </div>
 
 </body>
