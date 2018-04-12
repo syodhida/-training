@@ -27,10 +27,13 @@
 
 <div class="container">
     <!-- ここにループ開始　-->
-    <hr>
-	<p>ユーザID:<?php echo $params[0]['ID']; ?></p>
-    <p>ユーザ名:<?php echo $params[0]['user_name']; ?></p>
-    <p>役職:<?php echo $params[0]['job']; ?></p>
+<?php foreach ($params as $key => $value){ ?>
+        <hr>
+	<p>ユーザID:<?php echo $params[$key]['ID']; ?></p>
+        <p>ユーザ名:<?php echo $params[$key]['user_name']; ?></p>
+        <p>役職:<?php echo $params[$key]['job']; ?></p>
+<?php }?>
+
     <!-- ここにループ終了　-->
 </div>
 
