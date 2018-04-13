@@ -31,7 +31,8 @@ function main(){
         $user_data = user_data::get_userdata();
         //ログイン判定フラグ
         $login_flag = 0;
-        //ログイン判定
+        
+	//ログイン判定
         foreach ($user_data as $key => $value) {
             //該当ユーザが居た場合ログインフラグを1にする
             //該当ユーザのメールアドレスを取得する
@@ -43,11 +44,16 @@ function main(){
         }
         //ログインの可否によって処理を分ける
         if($login_flag == 1){
+
             //クッキーにログイン情報をセットする
-            //ID,emailとかをセットすると良い
-            //クッキーのセット例
-            setcookie("EMAIL", 'testemail_address', time()+(60*60*24*7) );
-            //↑クッキーにEMAILという名前で文字列を挿入　有効期限1週間
+            foreach ($user_data as $key => $value) {
+
+                if($_POST['email'] == $value['email']) {
+                    setcookie("ID", $value['ID'], time()+(60*60*24*7) );
+                    setcookie("EMAIL", $value['email'], time()+(60*60*24*7) );
+                    //↑クッキーにユーザーデータ'ID'と'email'を挿入　有効期限1週間
+    	        }
+    	    }
 
             //ログイン成功時なのでトップページへリダイレクト
             header("Location:/");

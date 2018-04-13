@@ -28,8 +28,11 @@
 <div class="container">
 <form action='/login.php' method="POST">
     <!-- エラーがあるときはここに表示する -->
-    <p style="color:#ff0000;">エラーサンプル</p>
-    <p style="color:#ff0000;">ログインできませんでした</p>
+    <?php if ($params["initial"] == 0){ ?>
+    	<!--<p style="color:#ff0000;">エラーサンプル</p>-->
+        <p style="color:#ff0000;">ERROR</p>
+    	<p style="color:#ff0000;">ログインできませんでした</p>
+    <?php }?>
     <!-- エラーがあるときはここに表示する -->
     <input type='text' name='email' placeholder="Email"><br>
     <input type='text' name='password' placeholder="password"><br>

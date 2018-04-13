@@ -17,17 +17,26 @@ function main(){
 
 
     //クッキーからログイン状態を判別する
-    //↓クッキーの取得例
-    $email = '';
-    if(isset($_COOKIE["EMAIL"]))$email = $_COOKIE["EMAIL"];
-    //issetで値の有無を確認し、有る場合のみ代入する処理
+    $id = '';
 
+    if(isset($_COOKIE["ID"]))$id = $_COOKIE["ID"];
+    //issetで値の有無を確認し、有る場合のみ代入する処理
+    
     $params['login_flag'] = 0;
-    /*
-    if(もしログイン中なら){
+
+    //ユーザIDが存在する
+    if($id != "" ){
         $params['login_flag'] = 1;
+	
+	//IDに対応するUsernameを格納
+        $user_data = user_data::get_userdata();
+	foreach ($user_data as $key => $value) {
+		
+		if($id == $value['ID']){
+			$params['user_name'] = $value['user_name'];
+		}
+	}
     }
-    */
 
     //templateを指定
     $template = './template/index.html';

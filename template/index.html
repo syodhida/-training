@@ -26,15 +26,17 @@
 <body>
 
 <div class="container">
-<!-- ログイン中のみ、ここに名前を表示する -->
-<p>こんにちは◯◯さん</p>
 
 <!-- ログイン中ではない時のみ表示する -->
-<a href="login.php">ログインする</a>
+    <?php if ($params["login_flag"] == 1){ ?>    
+    <p>こんにちは <?php echo $params['user_name']; ?>さん</p>	
+    <a href="logout.php">ログアウトする</a>
+    <?php }?>
+<!-- ログイン中のみ、ここに名前を表示する -->
+    <?php if ($params["login_flag"] == 0){ ?>
+    <a href="login.php">ログインする</a>
+    <?php }?>
 
-<!-- ログイン中のみ表示する -->
-<a href="logout.php">ログアウトする</a>
 </div>
-
 </body>
 </html>
