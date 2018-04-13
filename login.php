@@ -23,7 +23,7 @@ function main(){
         //ポスト送信されてきたときの処理
 
         //POST送信パラメータは$_POSTで取得できる
-        var_dump($_POST);exit();
+        //var_dump($_POST);exit();
 
         //POST送信されているので初回ではない判定
         $params["initial"] = 0;
@@ -35,8 +35,12 @@ function main(){
         foreach ($user_data as $key => $value) {
             //該当ユーザが居た場合ログインフラグを1にする
             //該当ユーザのメールアドレスを取得する
+            if($_POST['email'] == $value['email']){
+                if($_POST['password'] == $value['password']){
+                    $login_flag = 1;
+                }
+            }
         }
-
         //ログインの可否によって処理を分ける
         if($login_flag == 1){
             //クッキーにログイン情報をセットする
@@ -54,7 +58,6 @@ function main(){
     $template = './template/login.html';
     $contents = common::html_output($template,$params);
     //$contents = html_output($template,$params);
-
 
     //指定した内容を出力
     echo $contents;
