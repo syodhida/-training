@@ -26,15 +26,14 @@
 <body>
 
 <div class="container">
-    <!-- ここにループ開始　-->
-<?php foreach ($params as $key => $value){ ?>
-        <hr>
-        <p>ユーザID:<?php echo $value['ID']; ?></p>
-        <p>ユーザ名:<?php echo $value['user_name']; ?></p>
-        <p>役職:<?php echo $value['job']; ?></p>
-<?php }?>
+<!-- ログイン中のみ、ここに名前を表示する -->
+<p>こんにちは◯◯さん</p>
 
-    <!-- ここにループ終了　-->
+<!-- ログイン中ではない時のみ表示する -->
+<a href="login.php">ログインする</a>
+
+<!-- ログイン中のみ表示する -->
+<a href="logout.php">ログアウトする</a>
 </div>
 
 </body>

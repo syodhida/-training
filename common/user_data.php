@@ -6,17 +6,23 @@ class user_data {
         $params[] = [
             'ID'        => '1',
             'user_name' => '秋谷　亮太',
-            'job'       => 'programmer'
+            'job'       => 'programmer',
+            'email'     => 'test01@coosy.co.jp',
+            'password'  => 'coosy0101'
         ];
         $params[] = [
             'ID'        => '2',
             'user_name' => '吉田　忍',
-            'job'       => 'programmer'
+            'job'       => 'programmer',
+            'email'     => 'test02@coosy.co.jp',
+            'password'  => 'coosy0202'
         ];
         $params[] = [
             'ID'        => '3',
             'user_name' => '田中　裕也',
-            'job'       => 'lead programmer'
+            'job'       => 'lead programmer',
+            'email'     => 'test03@coosy.co.jp',
+            'password'  => 'coosy0303'
         ];
         return $params;
     }
